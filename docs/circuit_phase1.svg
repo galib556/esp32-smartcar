@@ -1,0 +1,197 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="12">
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#1a1a2e"/>
+  <text x="450" y="35" text-anchor="middle" fill="#e0e0e0" font-size="18" font-weight="bold">Phase 1 — Circuit Diagram: ESP32 WiFi RC Car</text>
+
+  <!-- ========== ESP32 ========== -->
+  <rect x="60" y="70" width="160" height="360" rx="8" fill="#0f3460" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="140" y="92" text-anchor="middle" fill="#4fc3f7" font-weight="bold" font-size="13">ESP32</text>
+  <text x="140" y="108" text-anchor="middle" fill="#90caf9" font-size="10">Dev Module</text>
+
+  <!-- ESP32 pins (right side) -->
+  <!-- GND -->
+  <circle cx="220" cy="140" r="4" fill="#f44336"/>
+  <text x="228" y="144" fill="#f44336">GND</text>
+
+  <!-- GPIO 16 - Right IN1 -->
+  <circle cx="220" cy="170" r="4" fill="#66bb6a"/>
+  <text x="228" y="174" fill="#aed581">GPIO 16</text>
+
+  <!-- GPIO 17 - Right IN2 -->
+  <circle cx="220" cy="195" r="4" fill="#66bb6a"/>
+  <text x="228" y="199" fill="#aed581">GPIO 17</text>
+
+  <!-- GPIO 22 - Right EN -->
+  <circle cx="220" cy="220" r="4" fill="#ffd54f"/>
+  <text x="228" y="224" fill="#ffd54f">GPIO 22</text>
+
+  <!-- GPIO 18 - Left IN1 -->
+  <circle cx="220" cy="260" r="4" fill="#66bb6a"/>
+  <text x="228" y="264" fill="#aed581">GPIO 18</text>
+
+  <!-- GPIO 19 - Left IN2 -->
+  <circle cx="220" cy="285" r="4" fill="#66bb6a"/>
+  <text x="228" y="289" fill="#aed581">GPIO 19</text>
+
+  <!-- GPIO 23 - Left EN -->
+  <circle cx="220" cy="310" r="4" fill="#ffd54f"/>
+  <text x="228" y="314" fill="#ffd54f">GPIO 23</text>
+
+  <!-- VIN (power in from L298N) -->
+  <circle cx="220" cy="360" r="4" fill="#ef9a9a"/>
+  <text x="228" y="364" fill="#ef9a9a">VIN (5V)</text>
+
+  <!-- ESP32 left side label -->
+  <text x="140" y="135" text-anchor="middle" fill="#78909c" font-size="10">Right Motor</text>
+  <text x="140" y="148" text-anchor="middle" fill="#78909c" font-size="10">↓</text>
+  <text x="140" y="248" text-anchor="middle" fill="#78909c" font-size="10">Left Motor</text>
+  <text x="140" y="261" text-anchor="middle" fill="#78909c" font-size="10">↓</text>
+
+  <!-- ========== L298N ========== -->
+  <rect x="440" y="100" width="180" height="320" rx="8" fill="#1b4332" stroke="#4caf50" stroke-width="2"/>
+  <text x="530" y="122" text-anchor="middle" fill="#4caf50" font-weight="bold" font-size="13">L298N</text>
+  <text x="530" y="138" text-anchor="middle" fill="#81c784" font-size="10">Dual H-Bridge</text>
+
+  <!-- L298N LEFT pins -->
+  <!-- GND -->
+  <circle cx="440" cy="170" r="4" fill="#f44336"/>
+  <text x="380" y="174" text-anchor="end" fill="#f44336">GND</text>
+
+  <!-- IN1 -->
+  <circle cx="440" cy="200" r="4" fill="#66bb6a"/>
+  <text x="380" y="204" text-anchor="end" fill="#aed581">IN1</text>
+
+  <!-- IN2 -->
+  <circle cx="440" cy="225" r="4" fill="#66bb6a"/>
+  <text x="380" y="229" text-anchor="end" fill="#aed581">IN2</text>
+
+  <!-- ENA -->
+  <circle cx="440" cy="250" r="4" fill="#ffd54f"/>
+  <text x="380" y="254" text-anchor="end" fill="#ffd54f">ENA</text>
+
+  <!-- IN3 -->
+  <circle cx="440" cy="290" r="4" fill="#66bb6a"/>
+  <text x="380" y="294" text-anchor="end" fill="#aed581">IN3</text>
+
+  <!-- IN4 -->
+  <circle cx="440" cy="315" r="4" fill="#66bb6a"/>
+  <text x="380" y="319" text-anchor="end" fill="#aed581">IN4</text>
+
+  <!-- ENB -->
+  <circle cx="440" cy="340" r="4" fill="#ffd54f"/>
+  <text x="380" y="344" text-anchor="end" fill="#ffd54f">ENB</text>
+
+  <!-- 5V OUT -->
+  <circle cx="440" cy="380" r="4" fill="#ef9a9a"/>
+  <text x="380" y="384" text-anchor="end" fill="#ef9a9a">5V OUT</text>
+
+  <!-- L298N RIGHT pins (motor outputs) -->
+  <!-- OUT1 -->
+  <circle cx="620" cy="185" r="4" fill="#ce93d8"/>
+  <text x="628" y="189" fill="#ce93d8">OUT1</text>
+
+  <!-- OUT2 -->
+  <circle cx="620" cy="210" r="4" fill="#ce93d8"/>
+  <text x="628" y="214" fill="#ce93d8">OUT2</text>
+
+  <!-- OUT3 -->
+  <circle cx="620" cy="305" r="4" fill="#80cbc4"/>
+  <text x="628" y="309" fill="#80cbc4">OUT3</text>
+
+  <!-- OUT4 -->
+  <circle cx="620" cy="330" r="4" fill="#80cbc4"/>
+  <text x="628" y="334" fill="#80cbc4">OUT4</text>
+
+  <!-- VIN -->
+  <circle cx="530" cy="100" r="4" fill="#ff8a65"/>
+  <text x="560" y="96" fill="#ff8a65">VIN</text>
+
+  <!-- ========== RIGHT MOTOR ========== -->
+  <ellipse cx="790" cy="200" rx="50" ry="30" fill="#2d2d2d" stroke="#ce93d8" stroke-width="2"/>
+  <text x="790" y="196" text-anchor="middle" fill="#ce93d8" font-size="11" font-weight="bold">RIGHT</text>
+  <text x="790" y="212" text-anchor="middle" fill="#ce93d8" font-size="11">MOTOR</text>
+  <circle cx="740" cy="191" r="3" fill="#ce93d8"/>
+  <circle cx="740" cy="209" r="3" fill="#ce93d8"/>
+
+  <!-- ========== LEFT MOTOR ========== -->
+  <ellipse cx="790" cy="320" rx="50" ry="30" fill="#2d2d2d" stroke="#80cbc4" stroke-width="2"/>
+  <text x="790" y="316" text-anchor="middle" fill="#80cbc4" font-size="11" font-weight="bold">LEFT</text>
+  <text x="790" y="332" text-anchor="middle" fill="#80cbc4" font-size="11">MOTOR</text>
+  <circle cx="740" cy="311" r="3" fill="#80cbc4"/>
+  <circle cx="740" cy="329" r="3" fill="#80cbc4"/>
+
+  <!-- ========== BATTERY ========== -->
+  <rect x="60" y="510" width="120" height="55" rx="6" fill="#2c1810" stroke="#ff8a65" stroke-width="2"/>
+  <text x="120" y="530" text-anchor="middle" fill="#ff8a65" font-weight="bold">BATTERY</text>
+  <text x="120" y="546" text-anchor="middle" fill="#ffab91" font-size="10">7.4V LiPo /</text>
+  <text x="120" y="559" text-anchor="middle" fill="#ffab91" font-size="10">18650 Pack</text>
+  <circle cx="60" cy="537" r="4" fill="#ff8a65"/>   <!-- VIN out -->
+  <circle cx="60" cy="553" r="4" fill="#f44336"/>   <!-- GND out -->
+
+  <!-- ========== WIRES ========== -->
+
+  <!-- GND bus (ESP32 GND → L298N GND) -->
+  <line x1="220" y1="140" x2="330" y2="140" stroke="#f44336" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="330" y1="140" x2="330" y2="170" stroke="#f44336" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="330" y1="170" x2="440" y2="170" stroke="#f44336" stroke-width="1.5"/>
+
+  <!-- GPIO16 → IN1 -->
+  <line x1="305" y1="170" x2="440" y2="200" stroke="#aed581" stroke-width="1.5"/>
+  <circle cx="305" cy="170" r="3" fill="#aed581"/>
+
+  <!-- GPIO17 → IN2 -->
+  <line x1="315" y1="195" x2="440" y2="225" stroke="#aed581" stroke-width="1.5"/>
+  <circle cx="315" cy="195" r="3" fill="#aed581"/>
+
+  <!-- GPIO22 → ENA -->
+  <line x1="325" y1="220" x2="440" y2="250" stroke="#ffd54f" stroke-width="1.5"/>
+  <circle cx="325" cy="220" r="3" fill="#ffd54f"/>
+
+  <!-- GPIO18 → IN3 -->
+  <line x1="305" y1="260" x2="440" y2="290" stroke="#aed581" stroke-width="1.5"/>
+  <circle cx="305" cy="260" r="3" fill="#aed581"/>
+
+  <!-- GPIO19 → IN4 -->
+  <line x1="315" y1="285" x2="440" y2="315" stroke="#aed581" stroke-width="1.5"/>
+  <circle cx="315" cy="285" r="3" fill="#aed581"/>
+
+  <!-- GPIO23 → ENB -->
+  <line x1="325" y1="310" x2="440" y2="340" stroke="#ffd54f" stroke-width="1.5"/>
+  <circle cx="325" cy="310" r="3" fill="#ffd54f"/>
+
+  <!-- 5V OUT → ESP32 VIN -->
+  <line x1="440" y1="380" x2="320" y2="380" stroke="#ef9a9a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="320" y1="380" x2="320" y2="360" stroke="#ef9a9a" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="320" y1="360" x2="220" y2="360" stroke="#ef9a9a" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- Battery → L298N VIN -->
+  <line x1="60" y1="537" x2="40" y2="537" stroke="#ff8a65" stroke-width="2"/>
+  <line x1="40" y1="537" x2="40" y2="88" stroke="#ff8a65" stroke-width="2"/>
+  <line x1="40" y1="88" x2="530" y2="88" stroke="#ff8a65" stroke-width="2"/>
+  <line x1="530" y1="88" x2="530" y2="100" stroke="#ff8a65" stroke-width="2"/>
+
+  <!-- Battery GND → common GND -->
+  <line x1="60" y1="553" x2="30" y2="553" stroke="#f44336" stroke-width="2"/>
+  <line x1="30" y1="553" x2="30" y2="580" stroke="#f44336" stroke-width="2"/>
+  <line x1="30" y1="580" x2="850" y2="580" stroke="#f44336" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="440" y="595" text-anchor="middle" fill="#f44336" font-size="10">— Common Ground Bus —</text>
+
+  <!-- OUT1/OUT2 → Right Motor -->
+  <line x1="620" y1="191" x2="740" y2="191" stroke="#ce93d8" stroke-width="1.5"/>
+  <line x1="620" y1="210" x2="740" y2="209" stroke="#ce93d8" stroke-width="1.5"/>
+
+  <!-- OUT3/OUT4 → Left Motor -->
+  <line x1="620" y1="311" x2="740" y2="311" stroke="#80cbc4" stroke-width="1.5"/>
+  <line x1="620" y1="330" x2="740" y2="329" stroke="#80cbc4" stroke-width="1.5"/>
+
+  <!-- ========== LEGEND ========== -->
+  <rect x="60" y="460" width="440" height="40" rx="4" fill="#111" stroke="#444" stroke-width="1"/>
+  <text x="70" y="476" fill="#e0e0e0" font-size="10" font-weight="bold">LEGEND:</text>
+  <line x1="125" y1="472" x2="155" y2="472" stroke="#aed581" stroke-width="2"/><text x="160" y="476" fill="#aed581" font-size="10">Direction (IN)</text>
+  <line x1="240" y1="472" x2="270" y2="472" stroke="#ffd54f" stroke-width="2"/><text x="275" y="476" fill="#ffd54f" font-size="10">PWM Speed (EN)</text>
+  <line x1="370" y1="472" x2="400" y2="472" stroke="#f44336" stroke-width="2" stroke-dasharray="4,2"/><text x="405" y="476" fill="#f44336" font-size="10">GND</text>
+  <line x1="125" y1="490" x2="155" y2="490" stroke="#ef9a9a" stroke-width="2" stroke-dasharray="4,2"/><text x="160" y="494" fill="#ef9a9a" font-size="10">5V Power</text>
+  <line x1="240" y1="490" x2="270" y2="490" stroke="#ff8a65" stroke-width="2"/><text x="275" y="494" fill="#ff8a65" font-size="10">Battery VIN</text>
+
+</svg>
