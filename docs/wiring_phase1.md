@@ -1,67 +1,61 @@
-# Phase 1 — Wiring Guide: ESP32 + L298N + DC Motors
+# Wiring Guide — ESP32 + L298N + DC Motors
 
-## Overview
+## Power
 
-In Phase 1 the ESP32 talks directly to an L298N dual H-bridge motor driver module. No sensor wiring is needed yet.
+```
+7.4V Battery Pack
+      │
+      ├──▶ L298N VIN  (drives the motors)
+      │         │
+      │         └── L298N 5V OUT ──▶ ESP32 VIN  (powers the ESP32)
+      │
+      └──▶ Common GND ──▶ L298N GND + ESP32 GND
+```
+
+Both the L298N and ESP32 must share the same ground. If you skip this, the motor directions will be wrong or the car won't respond at all.
 
 ---
 
-## Power Architecture
+## ESP32 to L298N
 
-```
-18650 / LiPo Pack (7.4V)
-        │
-        ├─── L298N VIN (motor power)
-        │         └── L298N 5V output ──▶ ESP32 VIN (regulated 5V)
-        │
-        └─── Common GND ──▶ L298N GND + ESP32 GND (shared ground!)
-```
-
-> ⚠️ **Always connect common ground** between L298N and ESP32 or motor direction will be unreliable.
-
----
-
-## ESP32 → L298N Connections
-
-| ESP32 GPIO | L298N Pin | Function |
-|-----------|-----------|----------|
-| GPIO 16 | IN1 | Right motor direction A |
-| GPIO 17 | IN2 | Right motor direction B |
-| GPIO 22 | ENA | Right motor PWM speed |
-| GPIO 18 | IN3 | Left motor direction A |
-| GPIO 19 | IN4 | Left motor direction B |
-| GPIO 23 | ENB | Left motor PWM speed |
+| ESP32 GPIO | L298N Pin | What it does |
+|-----------|-----------|--------------|
+| GPIO 16 | IN1 | Right motor direction |
+| GPIO 17 | IN2 | Right motor direction |
+| GPIO 22 | ENA | Right motor speed (PWM) |
+| GPIO 18 | IN3 | Left motor direction |
+| GPIO 19 | IN4 | Left motor direction |
+| GPIO 23 | ENB | Left motor speed (PWM) |
 | GND | GND | Common ground |
 
-> Remove the ENA and ENB jumpers on the L298N board — these pins are now driven by ESP32 PWM.
+**Important:** Remove the ENA and ENB jumpers from the L298N board. Those jumpers keep the motors at full speed permanently — pulling them out lets the ESP32 control speed via PWM.
 
 ---
 
-## L298N → Motors
+## L298N to Motors
 
-| L298N Terminal | Connection |
-|----------------|------------|
-| OUT1 | Right motor terminal A |
-| OUT2 | Right motor terminal B |
-| OUT3 | Left motor terminal A |
-| OUT4 | Left motor terminal B |
+| L298N Terminal | Motor |
+|----------------|-------|
+| OUT1 | Right motor wire A |
+| OUT2 | Right motor wire B |
+| OUT3 | Left motor wire A |
+| OUT4 | Left motor wire B |
 
-> If your car drives backward when it should go forward, swap OUT1↔OUT2 or OUT3↔OUT4 for that motor.
+If a motor spins the wrong way, just swap its two wires (OUT1↔OUT2 or OUT3↔OUT4).
 
 ---
 
-## Motor Direction Logic Table
+## Motor Direction Logic
 
-| IN1 | IN2 | Motor |
-|-----|-----|-------|
+| IN1 | IN2 | Result |
+|-----|-----|--------|
 | HIGH | LOW | Forward |
 | LOW | HIGH | Reverse |
-| LOW | LOW | Coast/Stop |
+| LOW | LOW | Stop |
 
 ---
 
 ## Notes
 
-- The L298N onboard 5V regulator can power the ESP32 if the input voltage is 7–12V.
-- If using a 5V power bank, connect directly to ESP32 5V pin and power motors from a separate supply.
-- PWM frequency is 1000 Hz with 8-bit resolution. `MAX_MOTOR_SPEED = 200` out of 255 to protect motors during development.
+- The L298N's onboard regulator outputs a clean 5V that can directly power the ESP32 through its VIN pin, as long as battery voltage is between 7–12V.
+- PWM runs at 1000 Hz, 8-bit resolution. Speed is set to 200 out of 255 — enough headroom to avoid stalling motors on the first run.
